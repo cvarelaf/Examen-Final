@@ -31,6 +31,21 @@
         controllerAs: 'vm'
       })
 
+      .state('main.registroUsuarios', {
+        url: '/registerUser',
+        templateUrl: './components/usuarios/registroUsuarios/main.registroUsuarios.view.html',
+        data:{
+          pageTitle: 'Registro de usuarios | Rank Inn'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/usuarios/registroUsuarios/registroUsuarios.controller.js')
+          }]
+        },
+        controller: 'registerUserController',
+        controllerAs: 'vm'
+      })
+
       .state('main.listarUsuarios', {
         url: '/viewUsers',
         templateUrl: './components/usuarios/listarBuscar/mantClientes.vista.html',

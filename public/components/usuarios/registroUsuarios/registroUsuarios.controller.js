@@ -82,6 +82,7 @@
     function listarUsuarios(){
       vm.listaUsuarios = servicioUsuarios.getUsuarios();
     }
+
   }
 
 })();
