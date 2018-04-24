@@ -61,6 +61,36 @@
         controllerAs: 'vm'
       })
 
+      .state('main.registroHoteles', {
+        url: '/registerHotel',
+        templateUrl: './components/hoteles/registroHoteles/registroHoteles.view.html',
+        data:{
+          pageTitle: 'Registro de Hoteles | Rank Inn'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/hoteles/registroHoteles/registroHoteles.controller.js')
+          }]
+        },
+        controller: 'registerHotelController',
+        controllerAs: 'vm'
+      })
+
+      .state('main.listarHoteles', {
+        url: '/viewHotels',
+        templateUrl: './components/hoteles/listarBuscar/mantHoteles.vista.html',
+        data:{
+          pageTitle: 'Lista de Hoteles | Rank Inn'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/hoteles/registroHoteles/registroHoteles.controller.js');
+          }]
+        },
+        controller: 'registerHotelController',
+        controllerAs: 'vm'
+      })
+
       .state('inicioSesion', {
         url: '/login',
         templateUrl: './components/inicioSesion/inicioSesion.view.html',

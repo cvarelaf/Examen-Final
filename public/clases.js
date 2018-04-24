@@ -102,3 +102,18 @@ class Review{
     return this.idCliente;
   }
 }
+
+class Hotel{
+  constructor(pnombre, pphoto, pposition, pprovincia, pcanton, pdistrito, pdireccionexacta, ptelcs, ptelreserv, pemail){
+    this.nombre = pnombre1;
+    this.photo = pphoto;
+    this.position = pposition;
+    this.provincia = pprovincia;
+    this.canton = pcanton;
+    this.distrito = pdistrito;
+    this.direccionExacta = pdireccionexacta;
+    this.telServicioCliente = ptelcs;
+    this.telReservaciones = ptelreserv;
+    this.correoElectronico = pemail;
+  }
+}

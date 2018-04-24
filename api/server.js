@@ -60,13 +60,15 @@ app.use( (req, res, next) => {
  */
 const index = require('./index'),
       usuarios = require('./components/usuarios/usuarios.route'),
-      reviews = require('./components/reviews/reviews.route');
+      reviews = require('./components/reviews/reviews.route'),
+      hoteles = require('./components/hoteles/hoteles.route');
 
 /**
  * Se definien las rutas de ExpressJS
  */
-app.use('/api', usuarios);
+app.use('/api', usuarios),
 app.use('/api', reviews),
+app.use('/api', hoteles);
 app.use('/', index);
 
 /// Se guarda todo lo que se ha realizado

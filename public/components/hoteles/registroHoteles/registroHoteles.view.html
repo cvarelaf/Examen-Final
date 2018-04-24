@@ -1,0 +1,138 @@
+<h2>Registro de Hoteles</h2>
+<form ng-submit="vm.preRegistrarHotel(vm.nuevoHotel)" name="formRegistroHoteles" novalidate autocomplete="off">
+
+  <div class="form-group">
+    <label for="txtCedula">Cédula</label>
+    <input type="text" id="txtCedula" class="form-control" name="campoCedula" ng-model="vm.nuevoHotel.cedula" pattern="[0-9]+" maxlength="9" minlength="9" required>
+    <div ng-messages="formRegistroHoteles.campoCedula.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+      <div ng-message="maxlength">
+        <small class="form-text text-muted">Formato incorrecto</small>
+      </div>
+      <div ng-message="minlength">
+        <small class="form-text text-muted">Formato incorrecto</small>
+      </div>
+      <div ng-message="pattern">
+        <small class="form-text text-muted">Formato incorrecto, ingrese únicamente números</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="txtNombre1">Primer nombre</label>
+    <input type="text" id="txtNombre1" class="form-control" name="campoNombre" ng-model="vm.nuevoHotel.nombre1" pattern="[ñáéíóúA-Za-z ]+" required>
+    <div ng-messages="formRegistroHoteles.campoNombre.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+      <div ng-message="pattern">
+        <small class="form-text text-muted">Formato incorrecto</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="txtNombre2">Segundo nombre</label>
+    <input type="text" id="txtNombre2" class="form-control" name="campoSegundoNombre" ng-model="vm.nuevoHotel.nombre2" pattern="[ñáéíóúA-Za-z ]+">
+    <div ng-messages="formRegistroHoteles.campoNombre.$error" role="alert">
+      <div ng-message="pattern">
+        <small class="form-text text-muted">Formato incorrecto</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="txtApellido1">Primer apellido</label>
+    <input type="text" id="txtApellido1" class="form-control" name="campoPrimerApellido" ng-model="vm.nuevoHotel.apellido1" required>
+    <div ng-messages="formRegistroHoteles.campoPrimerApellido.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+      <div ng-message="email">This field must be a valid email address.</div>
+      <div ng-message="maxlength">This field can be at most 15 characters long.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="txtApellido2">Segundo apellido</label>
+    <input type="text" id="txtApellido2" class="form-control" name="campoSegundoApellido" ng-model="vm.nuevoHotel.apellido2">
+  </div>
+
+  <div class="form-group">
+    <label for="dtFechaNacimiento">Fecha nacimiento</label>
+    <input type="date" id="dtFechaNacimiento" class="form-control" name="campoFecha" ng-model="vm.nuevoHotel.fechaNacimiento" required>
+  </div>
+
+  <div class="form-group">
+    <label for="txtEmail">Correo electrónico</label>
+    <input type="email" id="txtEmail" class="form-control" name="campoCorreo" ng-model="vm.nuevoHotel.email" required>
+    <div ng-messages="formRegistroHoteles.campoCorreo.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+      <div ng-message="email">
+        <small class="form-text text-muted">EL formato del correo electrónico es incorrecto</small>
+      </div>
+      <div ng-message="maxlength">This field can be at most 15 characters long.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="txtContrasenna">Contraseña</label>
+    <input type="password" id="txtContrasenna" class="form-control" name="campoContrasenna" required>
+  </div>
+
+  <div class="form-group">
+    <label for="txtConfirmContrasenna">Confirmar contraseña</label>
+    <input type="password" id="txtConfirmContrasenna" class="form-control" name="campoConfirmContrasenna" ng-model="vm.nuevoHotel.contrasenna" required>
+  </div>
+
+  <div class="form-group my-4">
+    <label for="filePhoto">Fotografía del Hotel</label>
+    <input type="file" class="form-control-file" id="filePhoto" files-input ng-model="vm.nuevoHotel.photo">
+  </div>
+
+  <div class="form-group">
+    <label for="sltProvincia">Provincia</label>
+    <select id="sltProvincia" class="form-control" name="sltProvincias" ng-change="vm.rellenarCantones(vm.nuevoHotel.provincia._id)" ng-options="provincia as provincia.name for provincia in vm.provincias track by provincia._id" ng-model="vm.nuevoHotel.provincia" required>
+      <option value="">-- Seleccione una Provincia --</option>
+    </select>
+    <div ng-messages="formRegistroHoteles.sltProvincias.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="sltCanton">Cantón</label>
+    <select id="sltCanton" class="form-control" name="sltCantones" ng-change="vm.rellenarDistrito(vm.nuevoHotel.canton._id)" ng-options="canton as canton.name for canton in vm.cantones track by canton._id" ng-model="vm.nuevoHotel.canton" required>
+      <option value="">-- Seleccione un Cantón --</option>
+    </select>
+    <div ng-messages="formRegistroHoteles.sltCantones.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="sltDistrito">Distrito</label>
+    <select id="sltDistrito" class="form-control" name="sltDistritos" ng-options="distrito as distrito.name for distrito in vm.distritos track by distrito._id" ng-model="vm.nuevoHotel.distrito" required>
+      <option value="">-- Seleccione un Distrito --</option>
+    </select>
+    <div ng-messages="formRegistroHoteles.sltDistritos.$error" role="alert">
+        <div ng-message="required">
+          <small class="form-text text-muted">Este campo es requerido</small>
+        </div>
+        <div ng-message="email">
+          <small class="form-text text-muted">EL formato del correo electrónico es incorrecto</small>
+        </div>
+        <div ng-message="maxlength">This field can be at most 15 characters long.</div>
+      </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Registrar</button>
+</form>

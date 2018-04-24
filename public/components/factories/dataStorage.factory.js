@@ -13,6 +13,8 @@
       setUserData: _setUserData,
       getReviewsData: _getReviewsData,
       setReviewData: _setReviewData,
+      getHotelData: _getHotelData,
+      setHotelData: _setHotelData,
       setSession: _setSession,
       closeSession: _closeSession,
       getSession: _getSession
@@ -215,6 +217,70 @@
       let sessionActive = JSON.parse(sessionStorage.getItem('session'));
 
       return sessionActive;
+    }
+
+
+        /**
+     * Funcion que obtiene los datos de los hoteles del back end y los retorna
+     */
+    function _getHotelData() {
+      let listaHoteles = [];
+
+      let peticion = $.ajax({
+        url: 'http://localhost:4000/api/get_all_hotels',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {}
+      });
+
+      peticion.done((hoteles) => {
+        console.log('Datos que vienen desde la base de datos')
+        console.log(hoteles);
+        listaHoteles = hoteles;
+      });
+      peticion.fail(() => {
+        listaHoteles = [];
+        console.log('Ocurrió un error');
+      });
+
+      return listaHoteles;
+    }
+
+    function _setHotelData(data) {
+      let response;
+
+      let peticion = $.ajax({
+        url: 'http://localhost:4000/api/save_hotel',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+          'nombre' : data.nombre,
+          'photo' : data.photo,
+          'position' : data.position,
+          'provincia' : data.provincia,
+          'canton' : data.canton,
+          'distrito' : data.distrito,
+          'direccionExacta' : data.direccionExacta,
+          'telServicioCliente' : data.telServicioCliente,
+          'telReservaciones' : data.telReservaciones,
+          'correoElectronico' : data.correoElectronico
+        }
+      });
+
+      peticion.done((datos) => {
+        response = datos.msj;
+        console.log('Petición realizada con éxito');
+      });
+      peticion.fail((error) => {
+        response = error;
+        console.log('Ocurrió un error');
+      });
+
+      return response;
     }
 
   }
