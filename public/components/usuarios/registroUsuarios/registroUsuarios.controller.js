@@ -4,12 +4,14 @@
   .module('rankInn')
   .controller('registerUserController', registerUserController);
 
-  registerUserController.$inject = ['$http','imageUploadService', 'servicioUsuarios', 'Upload'];
+  registerUserController.$inject = ['$http','imageUploadService', 'servicioUsuarios', 'Upload','dataStorageFactory'];
 
-  function registerUserController($http, imageUploadService, servicioUsuarios, Upload){
+  function registerUserController($http, imageUploadService, servicioUsuarios, Upload, dataStorageFactory){
     const vm = this;
 
     vm.nuevoUsuario = {};
+    vm.listaUsuarios = listarUsuarios();
+    listarUsuarios();
 
     vm.provincias = $http({
       method: 'GET',
@@ -76,5 +78,10 @@
         vm.nuevoUsuario = null;
       });
     }
+
+    function listarUsuarios(){
+      vm.listaUsuarios = servicioUsuarios.getUsuarios();
+    }
   }
+
 })();

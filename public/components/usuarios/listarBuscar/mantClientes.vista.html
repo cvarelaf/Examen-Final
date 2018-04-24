@@ -1,0 +1,32 @@
+<h2>Lista de Usuarios</h2>
+  <div class="form-group">
+    <label for="inputBuscar">Buscar Usuario</label>
+    <input type="text" class="form-control" id="inputBuscar" ng-model="buscarTarjeta">
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nº Identificación</th>
+        <th>Primer Nombre</th>
+        <th>Primer Apellido</th>
+        <th>Correo Electrónico</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="usuario in vm.listaUsuarios | filter:buscarTarjeta">
+        <td>{{usuario.cedula}}</td>
+        <td>{{usuario.primerNombre}}</td>
+        <td>{{usuario.primerApellido}}</td>
+        <td>{{usuario.correoElectronico}}</td>
+        <td>
+          <li class="nav-item dropdown btnAccion" style="list-style:none">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" ng-click="vm.modificar(usuario)">Modificar Usuario</a>
+              <a class="dropdown-item" ng-click="vm.desactivar(usuario)">Desactivar Usuario</a>
+            </div>
+          </li>
+        </td>
+      </tr>
+    </tbody>
+  </table>

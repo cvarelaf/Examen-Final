@@ -33,16 +33,16 @@
 
       .state('main.listarUsuarios', {
         url: '/viewUsers',
-        templateUrl: './components/usuarios/listarUsuarios/listarUsuarios.view.html',
+        templateUrl: './components/usuarios/listarBuscar/mantClientes.vista.html',
         data:{
           pageTitle: 'Lista de Usuarios | Rank Inn'
         },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
-            return $ocLazyLoad.load('./components/usuarios/listarUsuarios/listarUsuarios.controller.js');
+            return $ocLazyLoad.load('./components/usuarios/registroUsuarios/registroUsuarios.controller.js');
           }]
         },
-        controller: 'listUserController',
+        controller: 'registerUserController',
         controllerAs: 'vm'
       })
 
