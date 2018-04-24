@@ -2,11 +2,11 @@
   'use strict';
   angular
   .module('rankInn')
-  .controller('registerCarController', registerCarController);
+  .controller('registerReviewController', registerReviewController);
 
-  registerCarController.$inject = ['servicioUsuarios', 'loginService', 'imageUploadService', 'Upload'];
+  registerReviewController.$inject = ['servicioUsuarios', 'loginService', 'imageUploadService', 'Upload'];
 
-  function registerCarController(servicioUsuarios, loginService, imageUploadService, Upload){
+  function registerReviewController(servicioUsuarios, loginService, imageUploadService, Upload){
 
     const vm = this;
 

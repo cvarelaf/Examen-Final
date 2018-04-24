@@ -2,11 +2,11 @@
   'use strict';
   angular
   .module('rankInn')
-  .controller('listCarController', listCarController);
+  .controller('listReviewController', listReviewController);
 
-  listCarController.$inject = ['$http', '$state', '$stateParams', 'servicioUsuarios', 'loginService'];
+  listReviewController.$inject = ['$http', '$state', '$stateParams', 'servicioUsuarios', 'loginService'];
 
-  function listCarController($http, $state, $stateParams, servicioUsuarios, loginService){
+  function listReviewController($http, $state, $stateParams, servicioUsuarios, loginService){
 
     const vm = this;
 

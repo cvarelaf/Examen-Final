@@ -31,6 +31,21 @@
         controllerAs: 'vm'
       })
 
+      .state('main.listarUsuarios', {
+        url: '/viewUsers',
+        templateUrl: './components/usuarios/listarUsuarios/listarUsuarios.view.html',
+        data:{
+          pageTitle: 'Lista de Usuarios | Rank Inn'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/usuarios/listarUsuarios/listarUsuarios.controller.js');
+          }]
+        },
+        controller: 'listUserController',
+        controllerAs: 'vm'
+      })
+
       .state('inicioSesion', {
         url: '/login',
         templateUrl: './components/inicioSesion/inicioSesion.view.html',
@@ -62,7 +77,7 @@
       })
       
       .state('main.registroReviews', {
-        url: '/registerCar',
+        url: '/registerReview',
         templateUrl: './components/reviews/registrarReviews/registroReviews.view.html',
         data:{
           pageTitle: 'Registrar review | Rank Inn'
@@ -72,7 +87,7 @@
             return $ocLazyLoad.load('./components/reviews/registrarReviews/registroReviews.controller.js');
           }]
         },
-        controller: 'registerCarController',
+        controller: 'registerReviewController',
         controllerAs: 'vm'
       })
       
@@ -87,7 +102,7 @@
             return $ocLazyLoad.load('./components/reviews/listarReviews/listarReviews.controller.js');
           }]
         },
-        controller: 'listCarController',
+        controller: 'listReviewController',
         controllerAs: 'vm'
       })
 
