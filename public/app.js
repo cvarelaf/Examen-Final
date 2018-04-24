@@ -1,5 +1,5 @@
 (() => {
   'use strict';
   angular
-  .module('rankInn', ['appRoutes', 'ngMessages', 'duScroll', 'ngFileUpload']);
+  .module('rankInn', ['appRoutes', 'ngMessages', 'duScroll', 'ngFileUpload', 'ngMap', 'ngMapAutocomplete']);
 })();

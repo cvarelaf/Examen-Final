@@ -5,13 +5,13 @@ const mongoose = require('mongoose');
 var HotelSchema = new mongoose.Schema({
   nombre : {type : String, required : true},
   photo : {type : String, required : true},
-  position : {type : String, required : true},
+  position : {type : String},
   provincia : {type : String, required : true},
   canton : {type : String, required : true},
   distrito : {type : String, required : true},
   direccionExacta : {type : String, required : true},
-  telServicioCliente : {type : String, required : true},
-  telReservaciones : {type : String, required : true},
+  telServicioCliente : {type : Number, required : true},
+  telReservaciones : {type : Number, required : true},
   correoElectronico : {type : String, required : true},
 });
 

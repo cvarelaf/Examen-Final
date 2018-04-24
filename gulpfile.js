@@ -38,6 +38,8 @@ gulp.task('to-do', () => {
 gulp.task('dependencies', () => {
   gulp.src([
     './node_modules/angular/angular.min.js',
+    './node_modules/ngmap/build/scripts/ng-map.min.js',
+    './node_modules/ng-map-autocomplete/src/ng-map-autocomplete.js'
   ])
     .pipe(gulp.dest('./public/lib/angular'));
 
@@ -53,7 +55,7 @@ gulp.task('dependencies', () => {
   gulp.src([
     './node_modules/@uirouter/angularjs/release/angular-ui-router.min.js',
     './node_modules/oclazyload/dist/ocLazyLoad.min.js',
-    './node_modules/ui-router-page-title/page-title.min.js',
+    './node_modules/ui-router-page-title/page-title.min.js'
   ])
     .pipe(gulp.dest('./public/lib/angular/routing'));
 
