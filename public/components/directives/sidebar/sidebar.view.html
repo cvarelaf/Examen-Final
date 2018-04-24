@@ -1,0 +1,45 @@
+<aside class="bg-green">
+  <ul class="nav flex-column">
+    <li class="nav-item dropright">
+      <a class="nav-link text-white dropdown-toggle py-5 mt-4" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="d-inline">
+          <i class="fa fa-h-square"></i>
+        </div>
+        <p class="d-inline">Evaluaciones</p>
+      </a>
+
+      <div class="dropdown-menu">
+        <a class="dropdown-item" ui-sref="main.listarReviews">Visualizar Evaluaciones</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" ui-sref="main.registroReviews">Registrar Evaluaciones</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link text-white py-5" ui-sref="main.verPerfil" href="">
+        <div class="d-inline">
+          <i class="fas fa-user"></i>
+        </div>
+        <p class="d-inline">Mi perfil</p>
+      </a>
+    </li>
+
+    <li class="nav-item" ng-hide="vms.userInfo == 'Cliente'">
+      <a class="nav-link text-white py-5" ui-sref="main.verPerfil" href="">
+        <div class="d-inline">
+          <i class="fas fa-user"></i>
+        </div>
+        <p class="d-inline">Clientes</p>
+      </a>
+    </li>
+
+    <li class="nav-item" ng-hide="vms.userInfo == 'Cliente'">
+      <a class="nav-link text-white py-5" ui-sref="main.verPerfil" href="">
+        <div class="d-inline">
+          <i class="fas fa-user"></i>
+        </div>
+        <p class="d-inline">Hoteles</p>
+      </a>
+    </li>
+  </ul>
+</aside>

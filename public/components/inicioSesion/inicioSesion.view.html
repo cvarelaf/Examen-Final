@@ -1,0 +1,36 @@
+<navegacion-Principal></navegacion-Principal>
+<main id="registroUsuarios">
+  <section class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 py-5 px-5 panelIzquierdo">
+            <img src="../../../sources/img/logo3.png" class="my-5" alt="">
+        </div>
+      <div class="col-md-9 py-5 px-5 contenido my-5">
+          <h2>Inicio de Sesión</h2>
+          <form ng-submit="vm.login(vm.credentials)" name="formInicioSesion" novalidate autocomplete="off">
+  
+            <div class="form-group">
+              <label for="txtEmail">Correo electrónico</label>
+              <input type="email" id="txtEmail" class="form-control" name="campoEmail" ng-model="vm.credentials.email" required>
+              <div ng-messages="formInicioSesion.campoEmail.$error">
+                <div ng-message="required">
+                  <small class="form-text text-muted">Este campo es requerido</small>
+                </div>
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <label for="txtPassword">Contraseña</label>
+              <input type="password" id="txtPassword" class="form-control" name="campoPassword" ng-model="vm.credentials.password" required>
+              <div ng-messages="formInicioSesion.campoPassword.$error">
+                <div ng-message="required">
+                  <small class="form-text text-muted">Este campo es requerido</small>
+                </div>
+              </div>
+            </div>
+  
+            <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+          </form>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,12 @@
+// -----------------------------------------------------------------------------
+// LIBRARIES
+// -----------------------------------------------------------------------------
+
+// Bootstrap
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+// -----------------------------------------------------------------------------
+// Estilos de la aplicación
+// -----------------------------------------------------------------------------
+
+@import "general.style", "components/sidebar.style", "components/registroUsuarios.style", "components/inicioSesion.style";

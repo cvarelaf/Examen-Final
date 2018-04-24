@@ -1,0 +1,53 @@
+// Estilos generales
+body {
+  background: #fff;
+  font-family: 'montserrat';
+
+  aside{
+    height: 100vh;
+
+    a{
+      &:hover{
+        background: #000000;
+      }
+    }
+  }
+
+  .bg-green{
+    background: #8ba160;
+  }
+  .bg-trasparet{
+    background: rgb(0, 0, 0) transparent;
+  }
+  .text-white{
+    color: #fff;
+  }
+  .text-black{
+    color: #000;
+  }
+  .btn{
+    outline: none !important;
+    font-weight:300!important;
+    background-color: #000000;
+    border-color: #000000;
+  }
+
+  .btn-danger{
+    outline: none !important;
+    font-weight:300!important;
+    background-color: #000000;
+    border-color: #000000;
+  }
+
+  .mt-6{
+    margin-top: 3.5rem !important;
+  }
+
+  .mt-7{
+    margin-top: 4rem !important;
+  }
+
+  .mt-8{
+    margin-top: 4.5rem !important;
+  }
+}
