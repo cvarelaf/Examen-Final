@@ -105,7 +105,7 @@ class Review{
 
 class Hotel{
   constructor(pnombre, pphoto, pposition, pprovincia, pcanton, pdistrito, pdireccionexacta, ptelcs, ptelreserv, pemail){
-    this.nombre = pnombre1;
+    this.nombre = pnombre;
     this.photo = pphoto;
     this.position = pposition;
     this.provincia = pprovincia;
