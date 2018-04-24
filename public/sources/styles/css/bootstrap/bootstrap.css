@@ -2905,7 +2905,7 @@ tbody.collapse.show {
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.25rem 1.5rem;
+  padding: 0.25rem 5rem;
   clear: both;
   font-weight: 400;
   color: #212529;

@@ -1,115 +1,57 @@
-#sidebar {
-  overflow: hidden;
-  z-index: 3;
-  .list-group {
-    min-width: 400px;
-    background-color: #333;
-    min-height: 100vh;
-  }
-  i {
-    margin-right: 6px;
-  }
-  .list-group-item {
-    border-radius: 0;
-    background-color: #333;
-    color: #ccc;
-    border-left: 0;
-    border-right: 0;
-    border-color: #2c2c2c;
-    white-space: nowrap;
-  }
-  /* highlight active menu */
-  .list-group-item:not(.collapsed) {
-    background-color: #222;
-  }
-  /* closed state */
-  .list-group .list-group-item[aria-expanded="false"]::after {
-    content: " \f0d7";
-    font-family: FontAwesome;
-    display: inline;
-    text-align: right;
-    padding-left: 5px;
-  }
-  /* open state */
-  .list-group .list-group-item[aria-expanded="true"] {
-    background-color: #222;
-  }
-  .list-group .list-group-item[aria-expanded="true"]::after {
-    content: " \f0da";
-    font-family: FontAwesome;
-    display: inline;
-    text-align: right;
-    padding-left: 5px;
-  }
-  .list-group .collapse .list-group-item,
-  .list-group .collapsing .list-group-item {
-    padding-left: 20px;
-    .list-group .collapse>.collapse .list-group-item,
-    .list-group .collapse>.collapsing .list-group-item {
-      padding-left: 30px;
-    }
-  }
-  .list-group .collapse>.collapse>.collapse .list-group-item {
-    padding-left: 40px;
-  }
-}
-
-@media (max-width:768px) {
-  #sidebar {
-    min-width: 35px;
-    max-width: 40px;
-    overflow-y: auto;
-    overflow-x: visible;
-    transition: all 0.25s ease;
-    transform: translateX(-45px);
-    position: fixed;
-    .show {
-      transform: translateX(0);
-    }
-    &::-webkit-scrollbar {
-      width: 0px;
-    }
-    .list-group {
-      min-width: 35px;
-      overflow: visible;
-    }
-    .list-group .collapse.show,
-    .list-group .collapsing {
-      position: relative;
-      z-index: 1;
-      width: 190px;
-      top: 0;
-    }
-    .list-group>.list-group-item {
-      text-align: center;
-      padding: .75rem .5rem;
-    }
-  }
-  /* hide caret icons of top level when collapsed */
-  .list-group>.list-group-item[aria-expanded="true"]::after,
-  .list-group>.list-group-item[aria-expanded="false"]::after {
-    display: none;
-  }
-}
-
-.collapse.show {
-  visibility: visible;
-}
-
-.collapsing {
-  visibility: visible;
-  height: 0;
-  -webkit-transition-property: height, visibility;
-  transition-property: height, visibility;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.collapsing.width {
-  -webkit-transition-property: width, visibility;
-  transition-property: width, visibility;
-  width: 0;
+ /* Fixed sidenav, full height */
+ .sidenav {
   height: 100%;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
+  width: 300px;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background-color: #8ba160;
+  overflow-x: hidden;
+  padding-top: 97px;
 }
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 30px;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: #8ba160;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #8ba160;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+} 
