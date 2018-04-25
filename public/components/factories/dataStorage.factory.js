@@ -171,10 +171,12 @@
         dataType: 'json',
         async: false,
         data: {
-          modelo: pnuevoreview.modelo,
-          matricula: pnuevoreview.matricula,
-          marca: pnuevoreview.marca,
-          image: pnuevoreview.image,
+          hotel: pnuevoreview.hotel,
+          comida: pnuevoreview.comida,
+          calidadservicio: pnuevoreview.calidadservicio,
+          habitaciones: pnuevoreview.habitaciones,
+          infraestructura: pnuevoreview.infraestructura,
+          limpieza: pnuevoreview.limpieza,
           idCliente: pnuevoreview.idCliente
         }
       });

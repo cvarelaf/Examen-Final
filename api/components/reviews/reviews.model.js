@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 
 //Esquema de usuarios
 var ReviewSchema = new mongoose.Schema({
-  modelo : {type : String, required : true},
-  matricula : {type : String, required : true},
-  marca : {type : String, required : true},
-  image : {type : String, required : true},
+  hotel : {type : String, required : true},
+  comida : {type : String, required : true},
+  calidadservicio : {type : String, required : true},
+  habitaciones : {type : String, required : true},
+  infraestructura  : {type : String, required : true},
+  limpieza  : {type : String, required : true},
   idCliente: {type : String, required : true}
 });
 

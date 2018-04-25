@@ -80,7 +80,7 @@
         listaReviewsBD = dataStorageFactory.getReviewsData();
 
       listaReviewsBD.forEach(obj => {
-        let objReview = new Review(obj.modelo, obj.matricula, obj.marca, obj.image, obj.idCliente);
+        let objReview = new Review(obj.hotel,obj.comida,obj.calidadservicio,obj.habitaciones,obj.infraestructura,obj.limpieza,obj.idCliente);
 
         listaReviews.push(objReview);
       });
@@ -101,7 +101,7 @@
           registroValido;
 
       for(let i = 0; i < listaReviews.length; i++){
-        if(listaReviews[i].getmatricula() == preview.getmatricula()){
+        if(listaReviews[i].getHotel() == preview.getHotel()){
           reviewRepetido = true;
         }
       }
@@ -109,7 +109,7 @@
       if (reviewRepetido == false) {
         for(let i = 0; i < listaUsuarios.length; i++){
           if(listaUsuarios[i].getcedula() == preview.getCedulaDuenno()){
-            listaUsuarios[i].agregarReview(preview.getmatricula());
+            listaUsuarios[i].agregarReview(preview.getHotel());
           }
         }
         registroValido = dataStorageFactory.setReviewData(preview);
@@ -139,14 +139,14 @@
     /**
      * Función que obtiene los datos de una evaluación y los retorno
      * @param {Cédula del usuario activo} pidUsuarioActivo 
-     * @param {Matricula del review} previewid 
+     * @param {Hotel del review} previewid 
      */
     function _getInfoReviews(pidUsuarioActivo, previewid) {
       let listaReviewsPorUsuario = _getReviewsPorUsuario(pidUsuarioActivo),
         reviewActivo;
 
       for (let i = 0; i < listaReviewsPorUsuario.length; i++) {
-        if (listaReviewsPorUsuario[i].getmatricula() == previewid) {
+        if (listaReviewsPorUsuario[i].getHotel() == previewid) {
           reviewActivo = listaReviewsPorUsuario[i];
         }
       }

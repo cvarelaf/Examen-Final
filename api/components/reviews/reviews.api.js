@@ -27,7 +27,7 @@ module.exports.listarTodos = (req,res) => {
 };
 
 module.exports.actualizar = (req,res) => {
-  reviewModel.findByIdAndUpdate(req.body.matricula, { $set: req.body}, (err, user) => {
+  reviewModel.findByIdAndUpdate(req.body.hotel, { $set: req.body}, (err, user) => {
     if (err){
       res.json({success:false,msg:'No se ha actualizado.' + handleError(err)});
 

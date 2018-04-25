@@ -70,32 +70,18 @@ class Cliente{
 }
 
 class Review{
-  constructor(pmodelo, pmatricula, pmarca, pimage, pidcliente){
-    this.modelo = pmodelo;
-    this.matricula = pmatricula;
-    this.marca = pmarca;
-    this.image = pimage;
-    this.idCliente = pidcliente
+  constructor(photel,pcomida,pcalidadservicio,phabitaciones,pinfraestructura,plimpieza,pidcliente){
+    this.hotel = photel;
+    this.comida = pcomida;
+    this.calidadservicio = pcalidadservicio;
+    this.habitaciones = phabitaciones;
+    this.infraestructura = pinfraestructura;
+    this.limpieza = plimpieza;
+    this.idCliente = pidcliente;
   }
 
-  getMarca(){
-    return this.marca;
-  }
-
-  getModelo(){
-    return this.modelo;
-  }
-
-  getmatricula(){
-    return this.matricula;
-  }
-
-  getInfoReview(){
-    return `${this.marca} ${this.modelo}`;
-  }
-
-  getImage(){
-    return this.image;
+  getHotel(){
+    return this.hotel;
   }
 
   getCedulaDuenno(){

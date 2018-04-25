@@ -24,16 +24,9 @@
 
     vm.cloudObj = imageUploadService.getConfiguration();
 
-    vm.preRegistrarReview = (pnuevoReview) => {
-      vm.cloudObj.data.file = pnuevoReview.photo[0];
-      Upload.upload(vm.cloudObj).success((data) =>{
-        vm.registrarReview(pnuevoReview, data.url);
-     });
-    }
-
     vm.registrarReview = (pnuevoreview, urlImagen) => {
       
-      let objReviewNuevo = new Review(pnuevoreview.modelo, pnuevoreview.matricula, pnuevoreview.marca, urlImagen, userAuth.getcedula());
+      let objReviewNuevo = new Review(pnuevoreview.hotel,pnuevoreview.comida,pnuevoreview.calidadservicio,pnuevoreview.habitaciones,pnuevoreview.infraestructura,pnuevoreview.limpieza, userAuth.getcedula());
 
       console.log(objReviewNuevo);
 
