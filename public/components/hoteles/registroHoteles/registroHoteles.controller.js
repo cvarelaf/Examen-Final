@@ -67,14 +67,14 @@
 
     vm.onDragEnd = ($event) =>{
       let position =[$event.latLng.lat(), $event.latLng.lng()];
-      vm.coords=position;
+      vm.coords=position.toString();
       console.log('Coordenadas');
-      console.log(position);
+      console.log(vm.coords);
     };
 
     vm.registrarHotel = (pnuevoHotel, urlImagen) => {
       
-      let objNuevoHotel = new Hotel(pnuevoHotel.nombre,urlImagen,pnuevoHotel.position,pnuevoHotel.provincia.name,pnuevoHotel.canton.name,pnuevoHotel.distrito.name,pnuevoHotel.direccionExacta,pnuevoHotel.telServicioCliente,pnuevoHotel.telReservaciones,pnuevoHotel.correoElectronico);
+      let objNuevoHotel = new Hotel(pnuevoHotel.nombre,urlImagen,vm.coords,pnuevoHotel.provincia.name,pnuevoHotel.canton.name,pnuevoHotel.distrito.name,pnuevoHotel.direccionExacta,pnuevoHotel.telServicioCliente,pnuevoHotel.telReservaciones,pnuevoHotel.correoElectronico);
 
       console.log('Prueba Registro Hotel');
       console.log(objNuevoHotel);
