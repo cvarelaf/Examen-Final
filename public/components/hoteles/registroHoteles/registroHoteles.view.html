@@ -24,7 +24,7 @@
 
     <input type="text" name="campoPosition" class="form-control" id="txtPosition" ng-model="vm.coords" places-auto-complete size=80 component-restrictions="{country:'CR'}" required>
 
-    <ng-map id="map" center="[{{vm.coordsn}}]" zoom="14"styles="width: 50%, height: 20em">
+    <ng-map id="map" center="[{{vm.coords}}]" zoom="14"styles="width: 50%, height: 20em">
         <marker position="[{{vm.coords}}]" draggable="true" on-dragend="vm.onDragEnd($event)"></marker>
     </ng-map>
 
