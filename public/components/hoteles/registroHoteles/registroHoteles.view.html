@@ -19,26 +19,19 @@
     <input type="file" class="form-control-file" id="filePhoto" files-input ng-model="vm.nuevoHotel.photo">
   </div>
 
-  <!-- <div class="form-group">
+  <div class="form-group">
     <label for="txtPosition">Ubicación con geoposicionamiento</label>
 
-    <input type="text" name="campoPosition" class="form-control" id="txtPosition" ng-model="vm.coords" ng-change="vm.coords(vm.nuevoHotel.position)" places-auto-complete size=80 component-restrictions="{country:'CR'}" required>
+    <input type="text" name="campoPosition" class="form-control" id="txtPosition" ng-model="vm.coords" places-auto-complete size=80 component-restrictions="{country:'CR'}" required>
 
-    <ng-map id="map" center="[{{9.9280694}},{{-84.09072459999999}}]" zoom="14"styles="width: 50%, height: 20em">
-        <marker position="[{{9.9280694}},{{-84.09072459999999}}]" draggable="true" on-dragend="vm.onDragEnd($event)" ng-model="vm.coords" ></marker>
+    <ng-map id="map" center="[{{vm.coordsn}}]" zoom="14"styles="width: 50%, height: 20em">
+        <marker position="[{{vm.coords}}]" draggable="true" on-dragend="vm.onDragEnd($event)"></marker>
     </ng-map>
 
     <div ng-messages="formRegistroHoteles.campoPosition.$error" role="alert">
       <div ng-message="required">
         <small class="form-text text-muted">Este campo es requerido</small>
       </div>
-    </div>
-  </div> -->
-
-  <div class="form-group">
-    <label for="txtPosition">Geoposiciónl</label>
-    <input type="text" id="txtPosition" class="form-control" name="campoPosition" ng-model="vm.nuevoHotel.position" pattern="[ñáéíóúA-Za-z ]+" required>
-    <div ng-messages="formRegistroHoteles.campoPosition.$error" role="alert">
     </div>
   </div>
 

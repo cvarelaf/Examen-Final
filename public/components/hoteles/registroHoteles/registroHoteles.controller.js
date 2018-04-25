@@ -4,9 +4,9 @@
   .module('rankInn')
   .controller('registerHotelController', registerHotelController);
 
-  registerHotelController.$inject = ['$stateParams', '$state', '$http','imageUploadService', 'servicioHoteles', 'Upload','dataStorageFactory'/*,'NgMap'*/];
+  registerHotelController.$inject = ['$stateParams', '$state', '$http','imageUploadService', 'servicioHoteles', 'Upload','dataStorageFactory','NgMap'];
 
-  function registerHotelController($stateParams, $state, $http, imageUploadService, servicioHoteles, Upload, dataStorageFactory/*, NgMap*/){
+  function registerHotelController($stateParams, $state, $http, imageUploadService, servicioHoteles, Upload, dataStorageFactory, NgMap){
     const vm = this;
 
     vm.nuevoHotel = {};
@@ -65,17 +65,14 @@
      });
     }
 
-    // NgMap.getMap("map").then(function (map) {
-    //   vm.map = map;
-    // });
-
-    // vm.onDragEnd = ($event) =>{
-    //   let position =[$event.latLng.lat(), $event.latLng.lng()];
-    //   vm.coords=position;
-    // };
+    vm.onDragEnd = ($event) =>{
+      let position =[$event.latLng.lat(), $event.latLng.lng()];
+      vm.coords=position;
+      console.log('Coordenadas');
+      console.log(position);
+    };
 
     vm.registrarHotel = (pnuevoHotel, urlImagen) => {
-      // pnuevoHotel.position = vm.coords;
       
       let objNuevoHotel = new Hotel(pnuevoHotel.nombre,urlImagen,pnuevoHotel.position,pnuevoHotel.provincia.name,pnuevoHotel.canton.name,pnuevoHotel.distrito.name,pnuevoHotel.direccionExacta,pnuevoHotel.telServicioCliente,pnuevoHotel.telReservaciones,pnuevoHotel.correoElectronico);
 
