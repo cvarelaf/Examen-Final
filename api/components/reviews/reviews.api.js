@@ -2,10 +2,12 @@ const reviewModel = require('./reviews.model');
 
 module.exports.registrar = (req, res) => {
   var newReview = new reviewModel({
-    modelo : req.body.modelo,
-    matricula : req.body.matricula,
-    marca : req.body.marca,
-    image : req.body.image,
+    hotel : req.body.hotel,
+    comida : req.body.comida,
+    calidadservicio : req.body.calidadservicio,
+    habitaciones : req.body.habitaciones,
+    infraestructura  : req.body.infraestructura,
+    limpieza  : req.body.limpieza,
     idCliente : req.body.idCliente
   });
 
