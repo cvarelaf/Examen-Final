@@ -7,7 +7,7 @@
 
       <div class="form-group">
         <label for="txtHotel">Hotel:</label>
-          <select id="txtHotel" class="form-control" ng-options="vm.listaHoteles" ng-model="vm.nuevoReview.hotel" required>
+          <select id="txtHotel" class="form-control" ng-options="hotel.nombre for hotel in vm.listaHoteles" ng-model="vm.nuevoReview.hotel" required>
             <option></option>
           </select>
       </div>

@@ -10,6 +10,8 @@
 
     const vm = this;
     vm.listaHoteles = servicioHoteles.getHoteles();
+    
+    console.log(vm.listaHoteles);
 
     const userAuth = loginService.getAuthUser();
 

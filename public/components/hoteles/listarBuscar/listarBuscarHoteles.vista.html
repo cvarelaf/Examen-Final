@@ -7,7 +7,8 @@
     <thead>
       <tr>
         <th>
-          <button ng-click="orderBy:'nombre';reverse=false">Nombre</button>
+          Nombre
+          <!-- <a href="" ng-click="orderBy = 'nombre';reverse=true">Nombre</a> -->
         </th>
         <th>Provincia</th>
         <th>Teléfono</th>
@@ -15,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="hotel in vm.listaHoteles | filter:nombre | orderBy:'nombre':reverse=true">
+      <tr ng-repeat="hotel in vm.listaHoteles | filter:nombre | orderBy:'nombre'">
         <td>{{hotel.nombre}}</td>
         <td>{{hotel.provincia}}</td>
         <td>{{hotel.telServicioCliente}}</td>
