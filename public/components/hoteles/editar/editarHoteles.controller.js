@@ -12,8 +12,8 @@
 
     vm.nuevoHotelData = {};
 
-    let userParams = JSON.parse($stateParams.objTempHotel);
-    let hotelSeleccionado = Object.assign(new Hotel(), userParams);
+    let hotelParams = JSON.parse($stateParams.objTempHotel);
+    let hotelSeleccionado = Object.assign(new Hotel(), hotelParams);
 
     vm.nuevoHotelData.nombre = hotelSeleccionado.nombre;
     vm.nuevoHotelData.photo = hotelSeleccionado.photo;
@@ -102,7 +102,7 @@
           icon: "success",
           button: "Aceptar",
         });
-        vm.nuevoReview = null
+        vm.nuevoHotelData = null
       }else{
         swal({
           title: "Hubo un error",

@@ -8,13 +8,15 @@
       <tr>
         <th>Nombre</th>
         <th>Provincia</th>
-        <th>Correo Electrónico</th>
+        <th>Teléfono</th>
+        <th>Correo Eléctronico</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="hotel in vm.listaHoteles | filter:buscarTarjeta">
         <td>{{hotel.nombre}}</td>
         <td>{{hotel.provincia}}</td>
+        <td>{{hotel.telServicioCliente}}</td>
         <td>{{hotel.correoElectronico}}</td>
         <td>
           <li class="nav-item dropdown btnAccion" style="list-style:none">
