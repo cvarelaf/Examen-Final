@@ -6,22 +6,21 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Nº Identificación</th>
-        <th>Primer Nombre</th>
-        <th>Primer Apellido</th>
+        <th>Nombre</th>
+        <th>Provincia</th>
         <th>Correo Electrónico</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="hotel in vm.listaHoteles | filter:buscarTarjeta">
-        <td>{{hotel.cedula}}</td>
-        <td>{{hotel.primerNombre}}</td>
-        <td>{{hotel.primerApellido}}</td>
+        <td>{{hotel.nombre}}</td>
+        <td>{{hotel.provincia}}</td>
         <td>{{hotel.correoElectronico}}</td>
         <td>
           <li class="nav-item dropdown btnAccion" style="list-style:none">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones</a>
             <div class="dropdown-menu">
+              <a class="dropdown-item" ng-click="vm.verPerfil(hotel)">Ver Perfil</a>
               <a class="dropdown-item" ng-click="vm.modificar(hotel)">Modificar Hotel</a>
               <a class="dropdown-item" ng-click="vm.desactivar(hotel)">Desactivar Hotel</a>
             </div>

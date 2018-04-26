@@ -4,19 +4,10 @@
   .module('rankInn')
   .controller('verPerfilController', verPerfilController);
 
-  verPerfilController.$inject = ['servicioUsuarios', 'loginService']
+  verPerfilController.$inject = ['servicioHoteles','$stateParams', '$state']
 
-  function verPerfilController(servicioUsuarios, loginService){
-    const vm = this;
-
-    const userAuth = loginService.getAuthUser();
-
-    if(userAuth == undefined){
-      $state.go('inicioSesion');
-    }else{
-      vm.usuarioActivo = userAuth.getNombre();
-    }
-
-    vm.userInfo = userAuth;
+  function verPerfilController($http, $stateParams, $state, servicioHoteles){
+    let hotelParams = JSON.parse($stateParams.objTempUser);
+    vm.listaHoteles = servicioHoteles.getInfoHoteles(hotelParams);
   };
 })();

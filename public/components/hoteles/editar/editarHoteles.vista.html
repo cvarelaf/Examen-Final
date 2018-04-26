@@ -1,0 +1,134 @@
+<h2>Registro de Hoteles</h2>
+<form ng-submit="vm.actualizarDataHotel(vm.nuevoHotelData)" name="formRegistroHoteles" novalidate autocomplete="off">
+
+  <div class="form-group">
+    <label for="txtNombre">Nombre del Hotel</label>
+    <input type="text" id="txtNombre" class="form-control" name="campoNombre" ng-model="vm.nuevoHotelData.nombre" pattern="[ñáéíóúA-Za-z ]+" required disabled>
+    <div ng-messages="formRegistroHoteles.campoNombre.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+      <div ng-message="pattern">
+        <small class="form-text text-muted">Formato incorrecto</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group my-4">
+    <label for="filePhoto">Fotografía del Hotel</label>
+    <input type="file" class="form-control-file" id="filePhoto" files-input ng-model="vm.nuevoHotelData.photo">
+  </div>
+
+  <div class="form-group">
+    <label for="txtPosition">Ubicación con geoposicionamiento</label>
+
+    <input type="text" name="campoPosition" class="form-control" id="txtPosition" ng-model="vm.coords" places-auto-complete size=80 component-restrictions="{country:'CR'}" required>
+
+    <ng-map id="map" center="[{{vm.coords}}]" zoom="14"styles="width: 50%, height: 20em">
+        <marker position="[{{vm.coords}}]" draggable="true" on-dragend="vm.onDragEnd($event)"></marker>
+    </ng-map>
+
+    <div ng-messages="formRegistroHoteles.campoPosition.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="sltProvincia">Provincia</label>
+    <select id="sltProvincia" class="form-control" name="sltProvincias" ng-change="vm.rellenarCantones(vm.nuevoHotelData.provincia._id)" ng-options="provincia as provincia.name for provincia in vm.provincias track by provincia._id" ng-model="vm.nuevoHotelData.provincia" required>
+      <option value="">-- Seleccione una Provincia --</option>
+    </select>
+    <div ng-messages="formRegistroHoteles.sltProvincias.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="sltCanton">Cantón</label>
+    <select id="sltCanton" class="form-control" name="sltCantones" ng-change="vm.rellenarDistrito(vm.nuevoHotelData.canton._id)" ng-options="canton as canton.name for canton in vm.cantones track by canton._id" ng-model="vm.nuevoHotelData.canton" required>
+      <option value="">-- Seleccione un Cantón --</option>
+    </select>
+    <div ng-messages="formRegistroHoteles.sltCantones.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="sltDistrito">Distrito</label>
+    <select id="sltDistrito" class="form-control" name="sltDistritos" ng-options="distrito as distrito.name for distrito in vm.distritos track by distrito._id" ng-model="vm.nuevoHotelData.distrito" required>
+      <option value="">-- Seleccione un Distrito --</option>
+    </select>
+    <div ng-messages="formRegistroHoteles.sltDistritos.$error" role="alert">
+        <div ng-message="required">
+          <small class="form-text text-muted">Este campo es requerido</small>
+        </div>
+        <div ng-message="email">
+          <small class="form-text text-muted">EL formato del correo electrónico es incorrecto</small>
+        </div>
+        <div ng-message="maxlength">This field can be at most 15 characters long.</div>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label for="txtDireccionExacta">Dirección Exacta</label>
+    <input type="text" id="txtDireccionExacta" class="form-control" name="campoDireccionExacta" ng-model="vm.nuevoHotelData.direccionExacta" pattern="[ñáéíóúA-Za-z ]+">
+    <div ng-messages="formRegistroHoteles.campoDireccionExacta.$error" role="alert">
+      <div ng-message="pattern">
+        <small class="form-text text-muted">Formato incorrecto</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="form-group col-md-6">
+      <label for="txtTelCS">Teléfono Servicio al Cliente</label>
+      <input type="text" id="txtTelCS" class="form-control" name="campoTelCs" ng-model="vm.nuevoHotelData.telServicioCliente" pattern="^[2-6-8]*\d{7}"  minlength="8" maxlength="8" required>
+      <div ng-messages="formRegistroHoteles.campoTelCs.$error" role="alert">
+        <div ng-message="pattern">
+          <small class="form-text text-muted">Formato de teléfono incorrecto</small>
+        </div>
+        <div ng-message="minlength">
+          <small class="form-text text-muted">Mínimo 8 caracteres</small>
+        </div>
+      </div>
+    </div>
+
+  <div class="form-group col-md-6">
+    <label for="txtTelRsvp">Teléfono Reservaciones</label>
+    <input type="text" class="form-control" id="txtTelRsvp" ng-model="vm.nuevoHotelData.telReservaciones" name="txtTelRsvp" pattern="^[2-6-8]*\d{7}"  minlength="8" maxlength="8" required>
+    <div ng-messages="formRegistroHoteles.txtTelRsvp.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+      <div ng-message="pattern">
+          <small class="form-text text-muted">Formato de teléfono incorrecto</small>
+      </div>
+      <div ng-message="minlength">
+        <small class="form-text text-muted">Mínimo 8 caracteres</small>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <label for="txtEmail">Correo electrónico</label>
+    <input type="email" id="txtEmail" class="form-control" name="campoCorreo" ng-model="vm.nuevoHotelData.correoElectronico" required>
+    <div ng-messages="formRegistroHoteles.campoCorreo.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+      <div ng-message="email">
+        <small class="form-text text-muted">EL formato del correo electrónico es incorrecto</small>
+      </div>
+      <div ng-message="maxlength">This field can be at most 15 characters long.</div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Registrar</button>
+</form>

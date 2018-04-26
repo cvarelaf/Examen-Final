@@ -1,17 +1,30 @@
 (() => {
   'use strict';
   angular
-  .module('rankInn')
-  .controller('registerHotelController', registerHotelController);
+    .module('rankInn')
+    .controller('editarHotelesController', editarHotelesController);
 
-  registerHotelController.$inject = ['$stateParams', '$state', '$http','imageUploadService', 'servicioHoteles', 'Upload','dataStorageFactory','NgMap'];
+    editarHotelesController.$inject = ['$stateParams', '$state', '$http','imageUploadService', 'servicioHoteles', 'Upload','dataStorageFactory','NgMap'];
 
-  function registerHotelController($stateParams, $state, $http, imageUploadService, servicioHoteles, Upload, dataStorageFactory, NgMap){
-    const vm = this;
+  function editarHotelesController($stateParams, $state, $http, imageUploadService, servicioHoteles, Upload, dataStorageFactory, NgMap) {
 
-    vm.nuevoHotel = {};
-    vm.listaHoteles = listarHoteles();
-    listarHoteles();
+    let vm = this;
+
+    vm.nuevoHotelData = {};
+
+    //let userParams = JSON.parse($stateParams.objTempHotel);
+    //let hotelSeleccionado = Object.assign(new Hotel(), userParams);
+
+    // vm.nuevoHotelData.nombre = hotelSeleccionado.nombre;
+    // vm.nuevoHotelData.photo = hotelSeleccionado.photo;
+    // vm.nuevoHotelData.position = hotelSeleccionado.position;
+    // vm.nuevoHotelData.provincia = hotelSeleccionado.provincia;
+    // vm.nuevoHotelData.canton = hotelSeleccionado.canton;
+    // vm.nuevoHotelData.distrito = hotelSeleccionado.distrito;
+    // vm.nuevoHotelData.direccionExacta = hotelSeleccionado.direccionExacta;
+    // vm.nuevoHotelData.telServicioCliente = hotelSeleccionado.telServicioCliente;
+    // vm.nuevoHotelData.telReservaciones = hotelSeleccionado.telReservaciones;
+    // vm.nuevoHotelData.correoElectronico = hotelSeleccionado.correoElectronico;
 
     vm.provincias = $http({
       method: 'GET',
@@ -72,24 +85,8 @@
       console.log(vm.coords);
     };
 
-    vm.registrarHotel = (pnuevoHotel, urlImagen) => {
-      
-      let objNuevoHotel = new Hotel(pnuevoHotel.nombre,urlImagen,vm.coords,pnuevoHotel.provincia.name,pnuevoHotel.canton.name,pnuevoHotel.distrito.name,pnuevoHotel.direccionExacta,pnuevoHotel.telServicioCliente,pnuevoHotel.telReservaciones,pnuevoHotel.correoElectronico);
-
-      console.log('Prueba Registro Hotel');
-      console.log(objNuevoHotel);
-
-      let registroExitoso = servicioHoteles.setHotel(objNuevoHotel);
-
-      swal({
-        title: "Registro exitoso",
-        text: registroExitoso,
-        button: "Aceptar",
-      }).then((value) => {
-        vm.nuevoHotel = null;
-      });
-    }
-
+    vm.actualizarDataHotel = (pupdatehotel) => {
+      let success = servicioHoteles.actualizarHotel(pupdatehotel);
+    };
   }
-
 })();

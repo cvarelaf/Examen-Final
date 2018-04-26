@@ -5,9 +5,11 @@
 
     <form class="col-md-6 mx-auto" ng-submit="vm.registrarReview(vm.nuevoReview)" autocomplete="off">
 
-      <div class="form-group my-4">
-        <label for="txtHotel">Hotel</label>
-        <input type="text" class="form-control" id="txtHotel" ng-model="vm.nuevoReview.hotel">
+      <div class="form-group">
+        <label for="txtHotel">Hotel:</label>
+          <select id="txtHotel" class="form-control" ng-options="vm.listaHoteles" ng-model="vm.nuevoReview.hotel" required>
+            <option></option>
+          </select>
       </div>
 
       <div class="form-group my-4">

@@ -102,4 +102,16 @@ class Hotel{
     this.telReservaciones = ptelreserv;
     this.correoElectronico = pemail;
   }
+
+  getNombre(){
+    return `${this.nombre}`;
+  }
+
+  getDireccion(){
+    return `${this.provincia}, ${this.canton}, ${this.distrito}`;
+  }
+
+  getPhoto(){
+    return this.photo;
+  }
 }

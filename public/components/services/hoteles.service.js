@@ -12,7 +12,8 @@
 
     const publicAPI = {
       setHotel : _setHotel,
-      getHoteles : _getHoteles
+      getHoteles : _getHoteles,
+      _getInfoHoteles : _getInfoHoteles
     };
     return publicAPI;
 
@@ -44,6 +45,18 @@
       return listaHoteles;
     }
 
+    function _getInfoHoteles(pnombre) {
+
+      let listaHoteles = dataStorageFactory.getHotelData();
+
+      for(let i = 0; i < listaHoteles.length; i++){
+        if(listaHoteles[i].getNombre() == pnombre){
+          datosHotel = listaHoteles[i];
+      }
+    };
+
+    return datosHotel;
+    }
 
   }
 })();

@@ -48,16 +48,16 @@
 
       .state('main.listarUsuarios', {
         url: '/viewUsers',
-        templateUrl: './components/usuarios/listarBuscar/mantClientes.vista.html',
+        templateUrl: './components/usuarios/listarBuscar/listarBuscarUsuarios.vista.html',
         data:{
           pageTitle: 'Lista de Usuarios | Rank Inn'
         },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
-            return $ocLazyLoad.load('./components/usuarios/registroUsuarios/registroUsuarios.controller.js');
+            return $ocLazyLoad.load('./components/usuarios/listarBuscar/listarBuscar.controller.js');
           }]
         },
-        controller: 'registerUserController',
+        controller: 'listarBuscarUsuariosController',
         controllerAs: 'vm'
       })
 
@@ -78,16 +78,31 @@
 
       .state('main.listarHoteles', {
         url: '/viewHotels',
-        templateUrl: './components/hoteles/listarBuscar/mantHoteles.vista.html',
+        templateUrl: './components/hoteles/listarBuscar/listarBuscarHoteles.vista.html',
         data:{
           pageTitle: 'Lista de Hoteles | Rank Inn'
         },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
-            return $ocLazyLoad.load('./components/hoteles/registroHoteles/registroHoteles.controller.js');
+            return $ocLazyLoad.load('./components/hoteles/listarBuscar/listarBuscarHoteles.controller.js');
           }]
         },
-        controller: 'registerHotelController',
+        controller: 'listarBuscarHotelesController',
+        controllerAs: 'vm'
+      })
+
+      .state('main.editarHoteles', {
+        url: '/editHotel',
+        templateUrl: './components/hoteles/editar/editarHoteles.vista.html',
+        data:{
+          pageTitle: 'Editar Hotel | Rank Inn'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/hoteles/editar/editarHoteles.controller.js');
+          }]
+        },
+        controller: 'editarHotelesController',
         controllerAs: 'vm'
       })
 
@@ -160,6 +175,21 @@
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
             return $ocLazyLoad.load('./components/usuarios/verPerfil/verPerfil.controller.js');
+          }]
+        },
+        controller: 'verPerfilController',
+        controllerAs: 'vm'
+      })
+
+      .state('main.verPerfilHotel', {
+        url: '/viewProfileHotel',
+        templateUrl: './components/hoteles/verPerfil/verPerfilHotel.view.html',
+        data:{
+          pageTitle: 'Reviews | Rank Inn'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/hoteles/verPerfil/verPerfilHotel.controller.js');
           }]
         },
         controller: 'verPerfilController',

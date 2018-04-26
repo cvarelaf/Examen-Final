@@ -4,11 +4,12 @@
   .module('rankInn')
   .controller('registerReviewController', registerReviewController);
 
-  registerReviewController.$inject = ['servicioUsuarios', 'loginService', 'imageUploadService', 'Upload'];
+  registerReviewController.$inject = ['servicioUsuarios', 'loginService', 'imageUploadService', 'Upload','servicioHoteles'];
 
-  function registerReviewController(servicioUsuarios, loginService, imageUploadService, Upload){
+  function registerReviewController(servicioUsuarios, loginService, imageUploadService, Upload,servicioHoteles){
 
     const vm = this;
+    vm.listaHoteles = servicioHoteles.getHoteles();
 
     const userAuth = loginService.getAuthUser();
 
