@@ -1,19 +1,21 @@
 <h2>Lista de Hoteles</h2>
   <div class="form-group">
     <label for="inputBuscar">Buscar Hotel</label>
-    <input type="text" class="form-control" id="inputBuscar" ng-model="buscarTarjeta">
+    <input type="text" class="form-control" id="inputBuscar" ng-model="nombre">
   </div>
   <table class="table">
     <thead>
       <tr>
-        <th>Nombre</th>
+        <th>
+          <button ng-click="orderBy:'nombre';reverse=false">Nombre</button>
+        </th>
         <th>Provincia</th>
         <th>Teléfono</th>
         <th>Correo Eléctronico</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="hotel in vm.listaHoteles | filter:buscarTarjeta">
+      <tr ng-repeat="hotel in vm.listaHoteles | filter:nombre | orderBy:'nombre':reverse=true">
         <td>{{hotel.nombre}}</td>
         <td>{{hotel.provincia}}</td>
         <td>{{hotel.telServicioCliente}}</td>
