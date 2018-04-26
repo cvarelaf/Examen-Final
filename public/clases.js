@@ -80,12 +80,32 @@ class Review{
     this.idCliente = pidcliente;
   }
 
+  getCedulaDuenno(){
+    return this.idCliente;
+  }
+
   getHotel(){
     return this.hotel;
   }
 
-  getCedulaDuenno(){
-    return this.idCliente;
+  getComida(){
+    return this.comida;
+  }
+
+  getCalidadServicio(){
+    return this.calidadservicio;
+  }
+
+  getHabitaciones(){
+    return this.habitaciones;
+  }
+
+  getInfraestructura(){
+    return this.infraestructura;
+  }
+
+  getLimpieza(){
+    return this.limpieza;
   }
 }
 

@@ -3,38 +3,93 @@
 
     <h2 class="text-center">Registro de evaluaciones para {{vm.usuarioActivo}}</h2>
 
-    <form class="col-md-6 mx-auto" ng-submit="vm.registrarReview(vm.nuevoReview)" autocomplete="off">
+    <form class="col-md-4 mx-auto" ng-submit="vm.registrarReview(vm.nuevoReview)" autocomplete="off">
 
       <div class="form-group">
         <label for="txtHotel">Hotel:</label>
           <select id="txtHotel" class="form-control" ng-options="hotel.nombre for hotel in vm.listaHoteles" ng-model="vm.nuevoReview.hotel" required>
-            <option></option>
+          <option>-- Seleccione un Hotel --</option>
           </select>
       </div>
 
       <div class="form-group my-4">
         <label for="txtComida">Comida</label>
-        <input type="text" class="form-control" id="txtComida" ng-model="vm.nuevoReview.comida">
+        <fieldset class="starability-basic">
+          <input type="radio" id="fiel1_rate1" name="txtComida" value="1" ng-model="vm.nuevoReview.comida"/>
+          <label for="fiel1_rate1" title="Terrible">1 star</label>
+          <input type="radio" id="fiel1_rate2" name="txtComida" value="2" ng-model="vm.nuevoReview.comida"/>
+          <label for="fiel1_rate2" title="Not good">2 stars</label>
+          <input type="radio" id="fiel1_rate3" name="txtComida" value="3" ng-model="vm.nuevoReview.comida"/>
+          <label for="fiel1_rate3" title="Average">3 stars</label>
+          <input type="radio" id="fiel1_rate4" name="txtComida" value="4" ng-model="vm.nuevoReview.comida"/>
+          <label for="fiel1_rate4" title="Very good">4 stars</label>
+          <input type="radio" id="fiel1_rate5" name="txtComida" value="5" ng-model="vm.nuevoReview.comida"/>
+          <label for="fiel1_rate5" title="Amazing">5 stars</label>
+        </fieldset>
       </div>
 
       <div class="form-group my-4">
-        <label for="txtCalidadCS">Calidad de Servicio</label>
-        <input type="text" class="form-control" id="txtCalidadCS" ng-model="vm.nuevoReview.calidadservicio">
+        <label for="txtCalidadCS">Servicio</label>
+        <fieldset class="starability-basic">
+          <input type="radio" id="fiel2_rate1" name="txtCalidadCS" value="1" ng-model="vm.nuevoReview.calidadservicio"/>
+          <label for="fiel2_rate1" title="Terrible">1 star</label>
+          <input type="radio" id="fiel2_rate2" name="txtCalidadCS" value="2" ng-model="vm.nuevoReview.calidadservicio"/>
+          <label for="fiel2_rate2" title="Not good">2 stars</label>
+          <input type="radio" id="fiel2_rate3" name="txtCalidadCS" value="3" ng-model="vm.nuevoReview.calidadservicio"/>
+          <label for="fiel2_rate3" title="Average">3 stars</label>
+          <input type="radio" id="fiel2_rate4" name="txtCalidadCS" value="4" ng-model="vm.nuevoReview.calidadservicio"/>
+          <label for="fiel2_rate4" title="Very good">4 stars</label>
+          <input type="radio" id="fiel2_rate5" name="txtCalidadCS" value="5" ng-model="vm.nuevoReview.calidadservicio"/>
+          <label for="fiel2_rate5" title="Amazing">5 stars</label>
+        </fieldset>
       </div>
 
       <div class="form-group my-4">
-        <label for="txtCalidadHb">Calidad de las habitaciones</label>
-        <input type="text" class="form-control" id="txtCalidadHb" ng-model="vm.nuevoReview.habitaciones">
+        <label for="txtCalidadHb">Habitación</label>
+        <fieldset class="starability-basic">
+          <input type="radio" id="fiel3_rate1" name="txtCalidadHb" value="1" ng-model="vm.nuevoReview.habitaciones"/>
+          <label for="fiel3_rate1" title="Terrible">1 star</label>
+          <input type="radio" id="fiel3_rate2" name="txtCalidadHb" value="2" ng-model="vm.nuevoReview.habitaciones"/>
+          <label for="fiel3_rate2" title="Not good">2 stars</label>
+          <input type="radio" id="fiel3_rate3" name="txtCalidadHb" value="3" ng-model="vm.nuevoReview.habitaciones"/>
+          <label for="fiel3_rate3" title="Average">3 stars</label>
+          <input type="radio" id="fiel3_rate4" name="txtCalidadHb" value="4" ng-model="vm.nuevoReview.habitaciones"/>
+          <label for="fiel3_rate4" title="Very good">4 stars</label>
+          <input type="radio" id="fiel3_rate5" name="txtCalidadHb" value="5" ng-model="vm.nuevoReview.habitaciones"/>
+          <label for="fiel3_rate5" title="Amazing">5 stars</label>
+        </fieldset>
       </div>
 
       <div class="form-group my-4">
-        <label for="txtCalidadInf">Calidad de infraestructura</label>
-        <input type="text" class="form-control" id="txtCalidadInf" ng-model="vm.nuevoReview.infraestructura">
+        <label for="txtCalidadInf">Infraestructura</label>
+        <fieldset class="starability-basic">
+          <input type="radio" id="fiel4_rate1" name="txtCalidadInf" value="1" ng-model="vm.nuevoReview.infraestructura"/>
+          <label for="fiel4_rate1" title="Terrible">1 star</label>
+          <input type="radio" id="fiel4_rate2" name="txtCalidadInf" value="2" ng-model="vm.nuevoReview.infraestructura"/>
+          <label for="fiel4_rate2" title="Not good">2 stars</label>
+          <input type="radio" id="fiel4_rate3" name="txtCalidadInf" value="3" ng-model="vm.nuevoReview.infraestructura"/>
+          <label for="fiel4_rate3" title="Average">3 stars</label>
+          <input type="radio" id="fiel4_rate4" name="txtCalidadInf" value="4" ng-model="vm.nuevoReview.infraestructura"/>
+          <label for="fiel4_rate4" title="Very good">4 stars</label>
+          <input type="radio" id="fiel4_rate5" name="txtCalidadInf" value="5" ng-model="vm.nuevoReview.infraestructura"/>
+          <label for="fiel4_rate5" title="Amazing">5 stars</label>
+        </fieldset>
       </div>
 
       <div class="form-group my-4">
-        <label for="txtCalidadLimp">Calidad de limpieza</label>
-        <input type="text" class="form-control" id="txtCalidadLimp" ng-model="vm.nuevoReview.limpieza">
+        <label for="txtCalidadLimp">Limpieza</label>
+        <fieldset class="starability-basic">
+          <input type="radio" id="fiel5_rate1" name="txtCalidadLimp" value="1" ng-model="vm.nuevoReview.limpieza"/>
+          <label for="fiel5_rate1" title="Terrible">1 star</label>
+          <input type="radio" id="fiel5_rate2" name="txtCalidadLimp" value="2" ng-model="vm.nuevoReview.limpieza"/>
+          <label for="fiel5_rate2" title="Not good">2 stars</label>
+          <input type="radio" id="fiel5_rate3" name="txtCalidadLimp" value="3" ng-model="vm.nuevoReview.limpieza"/>
+          <label for="fiel5_rate3" title="Average">3 stars</label>
+          <input type="radio" id="fiel5_rate4" name="txtCalidadLimp" value="4" ng-model="vm.nuevoReview.limpieza"/>
+          <label for="fiel5_rate4" title="Very good">4 stars</label>
+          <input type="radio" id="fiel5_rate5" name="txtCalidadLimp" value="5" ng-model="vm.nuevoReview.limpieza"/>
+          <label for="fiel5_rate5" title="Amazing">5 stars</label>
+        </fieldset>
       </div>
 
       <button type="submit" class="btn btn-success mx-auto">Registrar</button>
