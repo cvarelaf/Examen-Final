@@ -82,6 +82,9 @@
         data:{
           pageTitle: 'Lista de Hoteles | Rank Inn'
         },
+        params: {
+          objTempHotel: ''
+        },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
             return $ocLazyLoad.load('./components/hoteles/listarBuscar/listarBuscarHoteles.controller.js');
@@ -97,6 +100,9 @@
         data:{
           pageTitle: 'Editar Hotel | Rank Inn'
         },
+        params: {
+          objTempHotel: ''
+        },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
             return $ocLazyLoad.load('./components/hoteles/editar/editarHoteles.controller.js');
@@ -105,6 +111,7 @@
         controller: 'editarHotelesController',
         controllerAs: 'vm'
       })
+
 
       .state('inicioSesion', {
         url: '/login',
@@ -186,6 +193,9 @@
         templateUrl: './components/hoteles/verPerfil/verPerfilHotel.view.html',
         data:{
           pageTitle: 'Reviews | Rank Inn'
+        },
+        params: {
+          objTempHotel: ''
         },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {

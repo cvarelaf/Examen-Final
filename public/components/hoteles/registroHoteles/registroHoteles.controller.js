@@ -13,6 +13,11 @@
     vm.listaHoteles = listarHoteles();
     listarHoteles();
 
+
+    function listarHoteles(){
+      vm.listaHoteles = servicioHoteles.getHoteles();
+    }
+
     vm.provincias = $http({
       method: 'GET',
       url: './sources/data/provincias.json'
