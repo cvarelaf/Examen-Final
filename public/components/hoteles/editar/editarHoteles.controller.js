@@ -12,19 +12,21 @@
 
     vm.nuevoHotelData = {};
 
-    //let userParams = JSON.parse($stateParams.objTempHotel);
-    //let hotelSeleccionado = Object.assign(new Hotel(), userParams);
+    let userParams = JSON.parse($stateParams.objTempHotel);
+    let hotelSeleccionado = Object.assign(new Hotel(), userParams);
 
-    // vm.nuevoHotelData.nombre = hotelSeleccionado.nombre;
-    // vm.nuevoHotelData.photo = hotelSeleccionado.photo;
-    // vm.nuevoHotelData.position = hotelSeleccionado.position;
-    // vm.nuevoHotelData.provincia = hotelSeleccionado.provincia;
-    // vm.nuevoHotelData.canton = hotelSeleccionado.canton;
-    // vm.nuevoHotelData.distrito = hotelSeleccionado.distrito;
-    // vm.nuevoHotelData.direccionExacta = hotelSeleccionado.direccionExacta;
-    // vm.nuevoHotelData.telServicioCliente = hotelSeleccionado.telServicioCliente;
-    // vm.nuevoHotelData.telReservaciones = hotelSeleccionado.telReservaciones;
-    // vm.nuevoHotelData.correoElectronico = hotelSeleccionado.correoElectronico;
+    vm.nuevoHotelData.nombre = hotelSeleccionado.nombre;
+    vm.nuevoHotelData.photo = hotelSeleccionado.photo;
+    vm.nuevoHotelData.position = hotelSeleccionado.position;
+    vm.nuevoHotelData.provincia = hotelSeleccionado.provincia;
+    vm.nuevoHotelData.canton = hotelSeleccionado.canton;
+    vm.nuevoHotelData.distrito = hotelSeleccionado.distrito;
+    vm.nuevoHotelData.direccionExacta = hotelSeleccionado.direccionExacta;
+    vm.nuevoHotelData.telServicioCliente = hotelSeleccionado.telServicioCliente;
+    vm.nuevoHotelData.telReservaciones = hotelSeleccionado.telReservaciones;
+    vm.nuevoHotelData.correoElectronico = hotelSeleccionado.correoElectronico;
+
+    console.log(vm.nuevoHotelData);
 
     vm.provincias = $http({
       method: 'GET',
@@ -85,8 +87,8 @@
       console.log(vm.coords);
     };
 
-    vm.actualizarDataHotel = (pupdatehotel) => {
-      let success = servicioHoteles.actualizarHotel(pupdatehotel);
+    vm.updateDataHotel = (pupdatehotel) => {
+      let success = servicioHoteles.updateHotel(pupdatehotel);
     };
   }
 })();

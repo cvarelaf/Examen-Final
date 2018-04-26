@@ -13,7 +13,7 @@
     const publicAPI = {
       setHotel : _setHotel,
       getHoteles : _getHoteles,
-      _getInfoHoteles : _getInfoHoteles
+      updateHotel : _updateHotel
     };
     return publicAPI;
 
@@ -45,17 +45,10 @@
       return listaHoteles;
     }
 
-    function _getInfoHoteles(pnombre) {
-
-      let listaHoteles = dataStorageFactory.getHotelData();
-
-      for(let i = 0; i < listaHoteles.length; i++){
-        if(listaHoteles[i].getNombre() == pnombre){
-          datosHotel = listaHoteles[i];
-      }
-    };
-
-    return datosHotel;
+    function _updateHotel(hotelEdited){
+      let success = false;
+      success = dataStorageFactory.updateHotel(hotelEdited);
+      return success;
     }
 
   }

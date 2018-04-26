@@ -4,9 +4,14 @@
   .module('rankInn')
   .controller('verPerfilController', verPerfilController);
 
-  verPerfilController.$inject = ['$http','servicioHoteles','$stateParams', '$state']
+  verPerfilController.$inject = ['$http','$stateParams', '$state','servicioHoteles',]
 
   function verPerfilController($http, $stateParams, $state, servicioHoteles){
-    vm.listaHoteles = JSON.parse($stateParams.objTempHotel);
+    let vm = this;
+    vm.hotelData = {};
+
+    let hotelParams = JSON.parse($stateParams.objTempUser);
+
+    vm.hotelData = hotelParams;
   };
 })();

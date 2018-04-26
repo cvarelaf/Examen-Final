@@ -5,8 +5,8 @@ const express = require('express'),
 /**
  * 
  */
-router.param('id', (req, res, next, id) => {
-  req.body.id = id;
+router.param('nombre', (req, res, next, nombre) => {
+  req.body.nombre = nombre;
   next();
 });
 
@@ -29,9 +29,9 @@ router.route('/get_all_hotels')
 /**
  * Función que actualiza los hoteles
  */
-router.route('/update_hotels')
+router.route('/update_hotel')
   .put((req, res) => {
-    users.actualizar(req,res);
+    users.updateHotel(req,res);
 });
 
 module.exports = router;

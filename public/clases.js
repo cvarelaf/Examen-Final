@@ -114,4 +114,8 @@ class Hotel{
   getPhoto(){
     return this.photo;
   }
+
+  getCorreoRsvp(){
+    return this.telReservaciones;
+  }
 }

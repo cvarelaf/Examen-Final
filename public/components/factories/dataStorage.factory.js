@@ -15,6 +15,7 @@
       setReviewData: _setReviewData,
       getHotelData: _getHotelData,
       setHotelData: _setHotelData,
+      updateHotel: _updateHotel,
       setSession: _setSession,
       closeSession: _closeSession,
       getSession: _getSession
@@ -54,45 +55,6 @@
 
       let peticion = $.ajax({
         url: 'http://localhost:4000/api/save_user',
-        type: 'post',
-        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType: 'json',
-        async: false,
-        data: {
-          'cedula': data.cedula,
-          'primerNombre': data.primerNombre,
-          'segundoNombre': data.segundoNombre,
-          'primerApellido': data.primerApellido,
-          'segundoApellido': data.segundoApellido,
-          'fechaNacimiento': data.fechaNacimiento,
-          'correoElectronico': data.correoElectronico,
-          'contrasenna': data.contrasenna,
-          'provincia': data.provincia,
-          'canton': data.canton,
-          'distrito': data.distrito,
-          'photo': data.photo,
-          'tipousuario': data.tipousuario,
-          'reviews': data.reviews
-        }
-      });
-
-      peticion.done((datos) => {
-        response = datos.msj;
-        console.log('Petición realizada con éxito');
-      });
-      peticion.fail((error) => {
-        response = error;
-        console.log('Ocurrió un error');
-      });
-
-      return response;
-    }
-
-    function _updateUserData(data) {
-      let response;
-
-      let peticion = $.ajax({
-        url: 'http://localhost:4000/api/update_users',
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
@@ -284,6 +246,41 @@
 
       return response;
     }
+
+    function _updateHotel(hotelData) {
+      let response;
+
+      let request = $.ajax({
+          url: 'http://localhost:4000/api/update_hotel',
+          type: 'put',
+          contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+          dataType: 'json',
+          async: false,
+          data: {
+            'nombre' : hotelData.nombre,
+            'photo' : hotelData.photo,
+            'position' : hotelData.position,
+            'provincia' : hotelData.provincia,
+            'canton' : hotelData.canton,
+            'distrito' : hotelData.distrito,
+            'direccionExacta' : hotelData.direccionExacta,
+            'telServicioCliente' : hotelData.telServicioCliente,
+            'telReservaciones' : hotelData.telReservaciones,
+            'correoElectronico' : hotelData.correoElectronico
+          }
+      });
+      request.done((res) => {
+          response = res.success;
+          console.log('Petición realizada con éxito');
+      });
+      request.fail((error) => {
+          response = error;
+          console.log('Ocurrió un error');
+      });
+
+      return response;
+  }
+
 
   }
 })();

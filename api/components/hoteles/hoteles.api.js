@@ -29,13 +29,13 @@ module.exports.listarTodos = (req,res) => {
   });
 };
 
-module.exports.actualizar = (req,res) => {
-  HotelModel.findByIdAndUpdate(req.body._nombre, { $set: req.body},
-    function (error){
-      if(error){
-        res.json({success:false, msg:'No se ha actualizado el hotel debido al siguiente error: ' + handleError(error)});
-      } else{
-        res.json({success:true, msg:'El hotel se ha modificado con éxito.'});
-      }
+module.exports.updateHotel = (req,res) => {
+  HotelModel.update({nombre: req.body.nombre} , req.body, (err, user) => {
+    if (err){
+      res.json({success:false,msg:'No se ha actualizado.' + handleError(err)});
+
+    } else{
+      res.json({success:true,msg:'Se ha actualizado correctamente.' + res});
+    }
   });
 };
