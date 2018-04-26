@@ -87,8 +87,30 @@
       console.log(vm.coords);
     };
 
-    vm.updateDataHotel = (pupdatehotel) => {
-      let success = servicioHoteles.updateHotel(pupdatehotel);
+    vm.updateDataHotel = (pupdatehotel,urlImagen) => {
+      let objNuevoHotel = new Hotel(pupdatehotel.nombre,urlImagen,vm.coords,pupdatehotel.provincia.name,pupdatehotel.canton.name,pupdatehotel.distrito.name,pupdatehotel.direccionExacta,pupdatehotel.telServicioCliente,pupdatehotel.telReservaciones,pupdatehotel.correoElectronico);
+
+      console.log('Prueba Cambios Hotel');
+      console.log(objNuevoHotel);
+
+      let registroExitoso = servicioHoteles.updateHotel(objNuevoHotel);
+
+      if(registroExitoso == true){
+        swal({
+          title: "Registro exitoso",
+          text: "La edición de datos se ha registrado correctamente",
+          icon: "success",
+          button: "Aceptar",
+        });
+        vm.nuevoReview = null
+      }else{
+        swal({
+          title: "Hubo un error",
+          text: "Ha ocurrido un error, inténtelo más tarde",
+          icon: "error",
+          button: "Aceptar",
+        });
+      }
     };
   }
 })();
