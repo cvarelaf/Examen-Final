@@ -15,6 +15,7 @@
       setReviewData: _setReviewData,
       getHotelData: _getHotelData,
       setHotelData: _setHotelData,
+      deleteHotelData: _deleteHotelData,
       updateHotel: _updateHotel,
       setSession: _setSession,
       closeSession: _closeSession,
@@ -281,7 +282,42 @@
       });
 
       return response;
-  }
+    }
+
+    function _deleteHotelData(hotelData){
+      let response;
+
+      let peticion = $.ajax({
+          url: 'http://localhost:4000/api/delete_hotel',
+          type: 'post',
+          contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+          dataType: 'json',
+          async: false,
+          data: {
+            'nombre' : hotelData.nombre,
+            'photo' : hotelData.photo,
+            'position' : hotelData.position,
+            'provincia' : hotelData.provincia,
+            'canton' : hotelData.canton,
+            'distrito' : hotelData.distrito,
+            'direccionExacta' : hotelData.direccionExacta,
+            'telServicioCliente' : hotelData.telServicioCliente,
+            'telReservaciones' : hotelData.telReservaciones,
+            'correoElectronicoCs' : hotelData.correoElectronicoCs,
+            'correoElectronicoRsvp' : hotelData.correoElectronicoRsvp,
+          }                
+      });
+
+      peticion.done((res) => {
+          response = res.success;
+          console.log('Petición realizada con éxito');
+      });
+      peticion.fail((error) => {
+          response = error;
+          console.log('Ocurrió un error');
+      });
+      return response;
+}
 
 
   }

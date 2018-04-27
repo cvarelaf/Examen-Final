@@ -13,7 +13,8 @@
     const publicAPI = {
       setHotel : _setHotel,
       getHoteles : _getHoteles,
-      updateHotel : _updateHotel
+      updateHotel : _updateHotel,
+      deleteHotel: _deleteHotel
     };
     return publicAPI;
 
@@ -48,6 +49,11 @@
     function _updateHotel(hotelEdited){
       let success = false;
       success = dataStorageFactory.updateHotel(hotelEdited);
+      return success;
+    }
+
+    function _deleteHotel(hotelDeleted){
+      let success = dataStorageFactory.deleteHotelData(hotelDeleted);
       return success;
     }
 

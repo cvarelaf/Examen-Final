@@ -22,13 +22,13 @@ module.exports.registrar = (req, res) => {
       res.json({success:true, msj:'Se registró el hotel correctamente'});
     }
   });
-};
+}
 
 module.exports.listarTodos = (req,res) => {
   HotelModel.find().then((hoteles) => {
     res.send(hoteles);
   });
-};
+}
 
 module.exports.updateHotel = (req,res) => {
   HotelModel.update({nombre: req.body.nombre} , req.body, (err, user) => {
@@ -39,4 +39,15 @@ module.exports.updateHotel = (req,res) => {
       res.json({success:true,msg:'Se ha actualizado correctamente.' + res});
     }
   });
-};
+}
+
+  
+module.exports.deleteHotel = (req, res) => {
+  HotelModel.deleteOne({codigo: req.body.codigo}, (err) => {
+    if(err){
+        res.json({success:false, msj: 'Problemas en la petición' + err});
+    }else{
+        res.json({success:true, msj: 'Se elimino correctamente'});
+    }
+  });
+}

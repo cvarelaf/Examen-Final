@@ -28,7 +28,7 @@
           </table>
         </div>
       </div>
-      <div class="col-md-8 col-lg-6 " align="center">
-        <img alt="User Pic" src="{{vm.hotelData.photo}}" class="img-circle img-responsive" width="100%">
-      </div>
+      <ng-map id="map" center="[{{vm.hotelData.position}}]" zoom="20"styles="width: 50%, height: 20em">
+          <marker position="[{{vm.hotelData.position}}]" draggable="true" on-dragend="vm.onDragEnd($event)"></marker>
+      </ng-map>
 </section>

@@ -34,4 +34,12 @@ router.route('/update_hotel')
     users.updateHotel(req,res);
 });
 
+/**
+ * Función que elimina los hoteles
+ */
+router.route('/delete_hotel')
+  .post((req, res) => {
+    users.deleteHotel(req,res);
+});
+
 module.exports = router;

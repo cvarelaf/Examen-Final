@@ -26,5 +26,19 @@
       console.log(pHotel);
       $state.go('main.verPerfilHotel', { objTempHotel: JSON.stringify(pHotel) })
     }
+
+    vm.desactivar = (pHotel) => {
+      let eliminar = swal({
+          title: '¿Eliminar Hotel?',
+          body: 'Este será borrado de la Base de Datos',
+          buttons: ['Cancelar', 'Continuar'],
+          icon: 'info'
+      }).then((confirmacion) => {
+          if(confirmacion){
+              servicioHoteles.deleteHotel(pHotel);
+              $state.reload();
+          }
+      });
+}
   }
 })();
