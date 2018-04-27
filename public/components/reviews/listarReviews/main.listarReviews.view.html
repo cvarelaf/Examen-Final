@@ -1,29 +1,32 @@
-<section>
-
-  <h2 class="text-center">Evaluaciones de {{vm.usuarioActivo}}</h2>
-
-  <div class="table-responsive">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th>Hotel</th>
-          <th>Comida</th>
-          <th>Calidad de Servicio</th>
-          <th>Habitaciones</th>
-          <th>Infraestructura</th>
-          <th>Limpieza</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="review in vm.listaReviews">
-          <td>{{review.getHotel()}}</td>
-          <td>{{review.getComida()}}</td>
-          <td>{{review.getCalidadServicio()}}</td>
-          <td>{{review.getHabitaciones()}}</td>
-          <td>{{review.getInfraestructura()}}</td>
-          <td>{{review.getLimpieza()}}</td>
-        </tr>
-      </tbody>
-    </table>
+<h2>Lista de Reviews</h2>
+  <div class="form-group">
+    <label for="inputBuscar">Buscar Review</label>
+    <input type="text" class="form-control" id="inputBuscar" ng-model="hotel">
   </div>
-</section>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Usuario</th>
+        <th>
+          Hotel
+          <!-- <a href="" ng-click="orderBy = 'nombre';reverse=true">Nombre</a> -->
+        </th>
+        <th>Comida</th>
+        <th>Calidad Servicio</th>
+        <th>Habitaciones</th>
+        <th>Infraestructura</th>
+        <th>Limpieza</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="review in vm.listaCompletaReviews | filter:hotel | orderBy:'hotel'">
+        <td>{{review.idCliente}}</td>
+        <td>{{review.hotel}}</td>
+        <td>{{review.comida}}</td>
+        <td>{{review.calidadservicio}}</td>
+        <td>{{review.habitaciones}}</td>
+        <td>{{review.infraestructura}}</td>
+        <td>{{review.limpieza}}</td>
+      </tr>
+    </tbody>
+  </table>

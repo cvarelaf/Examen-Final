@@ -173,6 +173,21 @@
         controllerAs: 'vm'
       })
 
+      .state('main.listarReviewsAdmin', {
+        url: '/viewReviews',
+        templateUrl: './components/reviews/listarReviews/main.listarReviews.view.html',
+        data:{
+          pageTitle: 'Lista de reviews | Rank Inn'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/reviews/listarReviews/listarReviews.controller.js');
+          }]
+        },
+        controller: 'listReviewController',
+        controllerAs: 'vm'
+      })
+
       .state('main.verPerfil', {
         url: '/viewProfile',
         templateUrl: './components/usuarios/verPerfil/verPerfil.view.html',

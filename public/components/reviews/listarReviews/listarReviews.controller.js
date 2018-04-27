@@ -19,6 +19,6 @@
     };
 
     vm.listaReviews = servicioUsuarios.getReviewsPorUsuario(userAuth.getcedula());
-
+    vm.listaCompletaReviews = servicioUsuarios.getReviews();
   };
 })();

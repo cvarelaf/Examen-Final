@@ -35,7 +35,7 @@
           listaHotelesBD = dataStorageFactory.getHotelData();
 
       listaHotelesBD.forEach(obj => {
-        let objHoteles = new Hotel(obj.nombre, obj.photo, obj.position, obj.provincia, obj.canton, obj.distrito, obj.direccionExacta, obj.telServicioCliente, obj.telReservaciones, obj.correoElectronico);
+        let objHoteles = new Hotel(obj.nombre, obj.photo, obj.position, obj.provincia, obj.canton, obj.distrito, obj.direccionExacta, obj.telServicioCliente, obj.telReservaciones, obj.correoElectronicoCs, obj.correoElectronicoRsvp);
 
         listaHoteles.push(objHoteles);
         console.log('Datos de la BD convertidos en clases');

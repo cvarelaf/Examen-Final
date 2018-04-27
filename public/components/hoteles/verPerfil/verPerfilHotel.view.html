@@ -1,8 +1,8 @@
 <section>
-  <h2 class="text-center panel-title">Perfil de {{vm.hotelData.getNombre()}}</h2> 
+  <h2 class="text-center panel-title">Perfil de {{vm.hotelData.nombre}}</h2> 
     <div class="row">
       <div class="col-md-3 col-lg-3 " align="center">
-        <img alt="User Pic" src="{{vm.hotelData.getPhoto()}}" class="img-circle img-responsive" width="100%">
+        <img alt="User Pic" src="{{vm.hotelData.photo}}" class="img-circle img-responsive" width="100%">
       </div>
 
       <div class="col-md-6 col-lg-6">
@@ -10,26 +10,25 @@
           <tbody>
             <tr>
               <td>Nombre</td>
-              <td>{{vm.hotelData.getNombre()}}</td>
+              <td>{{vm.hotelData.nombre}}</td>
             </tr>
-
             <tr>
               <tr>
                 <td>Correo electrónico</td>
                 <td>
-                  <a href="mailto:{{vm.hotelData.getCorreoRsvp()}}">{{vm.listaHoteles.getCorreoRsvp()}}</a>
+                  <a href="mailto:{{vm.hotelData.correoElectronicoRsvp}}">{{vm.hotelData.correoElectronicoRsvp}}</a>
                 </td>
               </tr>
               <tr>
                 <td>Dirección</td>
-                <td>{{vm.hotelData.getDireccion()}}</td>
+                <td>{{vm.hotelData.direccionExacta}}</td>
               </tr>
-
-              </tr>
-
+            </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </div>
+      <div class="col-md-8 col-lg-6 " align="center">
+        <img alt="User Pic" src="{{vm.hotelData.photo}}" class="img-circle img-responsive" width="100%">
+      </div>
 </section>

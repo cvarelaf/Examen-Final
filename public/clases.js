@@ -110,7 +110,7 @@ class Review{
 }
 
 class Hotel{
-  constructor(pnombre, pphoto, pposition, pprovincia, pcanton, pdistrito, pdireccionexacta, ptelcs, ptelreserv, pemail){
+  constructor(pnombre, pphoto, pposition, pprovincia, pcanton, pdistrito, pdireccionexacta, ptelcs, ptelreserv, pemailCs, pemailRsvp){
     this.nombre = pnombre;
     this.photo = pphoto;
     this.position = pposition;
@@ -120,7 +120,8 @@ class Hotel{
     this.direccionExacta = pdireccionexacta;
     this.telServicioCliente = ptelcs;
     this.telReservaciones = ptelreserv;
-    this.correoElectronico = pemail;
+    this.correoElectronicoCs = pemailCs;
+    this.correoElectronicoRsvp = pemailRsvp;
   }
 
   getNombre(){
@@ -136,6 +137,6 @@ class Hotel{
   }
 
   getCorreoRsvp(){
-    return this.telReservaciones;
+    return this.correoElectronicoRsvp;
   }
 }

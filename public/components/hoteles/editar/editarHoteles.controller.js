@@ -24,7 +24,8 @@
     vm.nuevoHotelData.direccionExacta = hotelSeleccionado.direccionExacta;
     vm.nuevoHotelData.telServicioCliente = hotelSeleccionado.telServicioCliente;
     vm.nuevoHotelData.telReservaciones = hotelSeleccionado.telReservaciones;
-    vm.nuevoHotelData.correoElectronico = hotelSeleccionado.correoElectronico;
+    vm.nuevoHotelData.correoElectronicoCs = hotelSeleccionado.correoElectronicoCs;
+    vm.nuevoHotelData.correoElectronicoRsvp = hotelSeleccionado.correoElectronicoRsvp;
 
     console.log(vm.nuevoHotelData);
 
@@ -88,7 +89,7 @@
     };
 
     vm.updateDataHotel = (pupdatehotel,urlImagen) => {
-      let objNuevoHotel = new Hotel(pupdatehotel.nombre,urlImagen,vm.coords,pupdatehotel.provincia.name,pupdatehotel.canton.name,pupdatehotel.distrito.name,pupdatehotel.direccionExacta,pupdatehotel.telServicioCliente,pupdatehotel.telReservaciones,pupdatehotel.correoElectronico);
+      let objNuevoHotel = new Hotel(pupdatehotel.nombre,urlImagen,vm.coords,pupdatehotel.provincia.name,pupdatehotel.canton.name,pupdatehotel.distrito.name,pupdatehotel.direccionExacta,pupdatehotel.telServicioCliente,pupdatehotel.telReservaciones,pupdatehotel.correoElectronicoCs,pupdatehotel.correoElectronicoRsvp);
 
       console.log('Prueba Cambios Hotel');
       console.log(objNuevoHotel);

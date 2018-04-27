@@ -11,7 +11,8 @@ module.exports.registrar = (req, res) => {
     direccionExacta       :  req.body.direccionExacta,
     telServicioCliente    :  req.body.telServicioCliente,
     telReservaciones      :  req.body.telReservaciones,
-    correoElectronico     :  req.body.correoElectronico
+    correoElectronicoCs     :  req.body.correoElectronicoCs,
+    correoElectronicoRsvp     :  req.body.correoElectronicoRsvp
   });
 
   newHotel.save((err) => {

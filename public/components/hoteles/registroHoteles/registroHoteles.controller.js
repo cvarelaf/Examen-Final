@@ -79,7 +79,7 @@
 
     vm.registrarHotel = (pnuevoHotel, urlImagen) => {
       
-      let objNuevoHotel = new Hotel(pnuevoHotel.nombre,urlImagen,vm.coords,pnuevoHotel.provincia.name,pnuevoHotel.canton.name,pnuevoHotel.distrito.name,pnuevoHotel.direccionExacta,pnuevoHotel.telServicioCliente,pnuevoHotel.telReservaciones,pnuevoHotel.correoElectronico);
+      let objNuevoHotel = new Hotel(pnuevoHotel.nombre,urlImagen,vm.coords,pnuevoHotel.provincia.name,pnuevoHotel.canton.name,pnuevoHotel.distrito.name,pnuevoHotel.direccionExacta,pnuevoHotel.telServicioCliente,pnuevoHotel.telReservaciones,pnuevoHotel.correoElectronicoCs,pnuevoHotel.correoElectronicoRsvp);
 
       console.log('Prueba Registro Hotel');
       console.log(objNuevoHotel);

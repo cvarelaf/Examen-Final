@@ -117,9 +117,23 @@
   </div>
 
   <div class="form-group">
-    <label for="txtEmail">Correo electrónico</label>
-    <input type="email" id="txtEmail" class="form-control" name="campoCorreo" ng-model="vm.nuevoHotel.correoElectronico" required>
-    <div ng-messages="formRegistroHoteles.campoCorreo.$error" role="alert">
+    <label for="txtEmail">Correo electrónico servicio al cliente</label>
+    <input type="email" id="txtEmail" class="form-control" name="campoCorreoCs" ng-model="vm.nuevoHotel.correoElectronicoCs" required>
+    <div ng-messages="formRegistroHoteles.campoCorreoCs.$error" role="alert">
+      <div ng-message="required">
+        <small class="form-text text-muted">Este campo es requerido</small>
+      </div>
+      <div ng-message="email">
+        <small class="form-text text-muted">EL formato del correo electrónico es incorrecto</small>
+      </div>
+      <div ng-message="maxlength">This field can be at most 15 characters long.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="txtEmail">Correo electrónico reservaciones</label>
+    <input type="email" id="txtEmail" class="form-control" name="campoCorreoRsvp" ng-model="vm.nuevoHotel.correoElectronicoRsvp" required>
+    <div ng-messages="formRegistroHoteles.campoCorreoRsvp.$error" role="alert">
       <div ng-message="required">
         <small class="form-text text-muted">Este campo es requerido</small>
       </div>

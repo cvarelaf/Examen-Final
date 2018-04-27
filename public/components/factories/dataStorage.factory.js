@@ -231,7 +231,8 @@
           'direccionExacta' : data.direccionExacta,
           'telServicioCliente' : data.telServicioCliente,
           'telReservaciones' : data.telReservaciones,
-          'correoElectronico' : data.correoElectronico
+          'correoElectronicoCs' : data.correoElectronicoCs,
+          'correoElectronicoRsvp' : data.correoElectronicoRsvp
         }
       });
 
@@ -266,7 +267,8 @@
             'direccionExacta' : hotelData.direccionExacta,
             'telServicioCliente' : hotelData.telServicioCliente,
             'telReservaciones' : hotelData.telReservaciones,
-            'correoElectronico' : hotelData.correoElectronico
+            'correoElectronicoCs' : hotelData.correoElectronicoCs,
+            'correoElectronicoRsvp' : hotelData.correoElectronicoRsvp
           }
       });
       request.done((res) => {

@@ -1,11 +1,13 @@
 <div class="sidenav">
-    <a ui-sref="main.verPerfil"><i class="fas fa-user"></i> Mi perfil</a>
-    <button class="dropdown-btn"><i class="fas fa-clipboard-check"></i> Evaluaciones <i class="fa fa-caret-down"></i>
+    <a ui-sref="main.verPerfil" ng-hide="vms.userInfo == 'Admin'"><i class="fas fa-user"></i> Mi perfil</a>
+    <button class="dropdown-btn" ng-hide="vms.userInfo == 'Admin'"><i class="fas fa-clipboard-check"></i> Evaluaciones <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
       <a ui-sref="main.registroReviews">Registrar Evaluaciones</a>
       <a ui-sref="main.listarReviews">Visualizar Evaluaciones</a>
+      <a ui-sref="main.listarReviewsAdmin"></a>
     </div>
+    <a ui-sref="main.listarReviewsAdmin" ng-hide="vms.userInfo == 'Cliente'"><i class="fas fa-clipboard-check"></i> Evaluaciones</a>
     <button class="dropdown-btn" ng-hide="vms.userInfo == 'Cliente'"><i class="fas fa-users"></i> Clientes
       <i class="fa fa-caret-down"></i>
     </button>
