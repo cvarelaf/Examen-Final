@@ -47,3 +47,10 @@ Y para finalizar, automaticamente, la tarea abre navegador dentro de un servidor
 
 * [Kevin Aguilar](https://github.com/KaguilarA)
 * [Pabs Monestel](https://github.com/pabskun)
+
+## RankInn
+Admin: admin@rankinn.co.cr
+Contraseña: 123
+
+Cliente: kavaref@gmail.com
+Contraseña: 123
